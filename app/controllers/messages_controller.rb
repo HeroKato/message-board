@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
   
   def edit
   end
+  
   def update
     if @message.update(message_params)
       # 保存に成功した場合はトップページへリダイレクト
@@ -23,6 +24,7 @@ class MessagesController < ApplicationController
   end
   
   def create
+    binding.pry
     @message = Message.new(message_params)
     if @message.save
       redirect_to root_path , notice: 'メッセージを保存しました'
